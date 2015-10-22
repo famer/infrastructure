@@ -2,12 +2,13 @@ web:
   build: .
   ports:
    - "8080:8080"
+  environment:
+   SPRING_DATA_MONGODB_URI: mongodb://mongo/loksfee
   #volumes:
   # - ./target:./data
   links:
-   - redis
    - mongo
-redis:
-  image: redis
 mongo:
   image: mongo
+  ports:
+   - "27017:27017"
